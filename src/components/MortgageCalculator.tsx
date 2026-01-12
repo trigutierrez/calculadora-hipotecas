@@ -23,140 +23,76 @@ const MortgageCalculator = () => {
         {/* Decorative Stickers */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-          {/* CASA CON OJOS - Top Left */}
+          {/* Llavero - Top Left */}
           <div className="absolute top-16 left-4 md:left-12 lg:left-20 float" style={{ animationDelay: '0s' }}>
-            <svg width="120" height="130" viewBox="0 0 120 130" className="drop-shadow-xl">
-              {/* Cuerpo de la casa */}
-              <rect x="20" y="55" width="80" height="65" rx="6" fill="#FF6B6B" stroke="#2D3436" strokeWidth="4"/>
-              {/* Tejado */}
-              <polygon points="60,5 5,60 115,60" fill="#FFE66D" stroke="#2D3436" strokeWidth="4" strokeLinejoin="round"/>
-              {/* Puerta */}
-              <rect x="45" y="80" width="30" height="40" rx="4" fill="#4ECDC4" stroke="#2D3436" strokeWidth="3"/>
-              <circle cx="68" cy="100" r="3" fill="#2D3436"/>
-              {/* Ventanas */}
-              <rect x="28" y="65" width="20" height="18" rx="2" fill="#74B9FF" stroke="#2D3436" strokeWidth="3"/>
-              <rect x="72" y="65" width="20" height="18" rx="2" fill="#74B9FF" stroke="#2D3436" strokeWidth="3"/>
-              {/* Ojos grandes y expresivos */}
-              <ellipse cx="45" cy="38" rx="12" ry="14" fill="white" stroke="#2D3436" strokeWidth="3"/>
-              <ellipse cx="75" cy="38" rx="12" ry="14" fill="white" stroke="#2D3436" strokeWidth="3"/>
-              <circle cx="48" cy="40" r="6" fill="#2D3436"/>
-              <circle cx="78" cy="40" r="6" fill="#2D3436"/>
-              <circle cx="50" cy="38" r="2" fill="white"/>
-              <circle cx="80" cy="38" r="2" fill="white"/>
-              {/* Cejas felices */}
-              <path d="M33 28 Q45 22 55 28" stroke="#2D3436" strokeWidth="3" fill="none" strokeLinecap="round"/>
-              <path d="M65 28 Q75 22 87 28" stroke="#2D3436" strokeWidth="3" fill="none" strokeLinecap="round"/>
-              {/* Chimenea */}
-              <rect x="80" y="20" width="15" height="25" fill="#FF7675" stroke="#2D3436" strokeWidth="3"/>
-            </svg>
+            <img
+              src="/stickers/keychain.png"
+              alt="Keychain sticker"
+              className="w-24 md:w-32 lg:w-36 drop-shadow-2xl"
+            />
           </div>
 
-          {/* PORCENTAJE CON PIES - Top Right */}
+          {/* Porta-lápices - Top Right */}
           <div className="absolute top-20 right-4 md:right-12 lg:right-24 float" style={{ animationDelay: '1.5s' }}>
-            <svg width="110" height="140" viewBox="0 0 110 140" className="drop-shadow-xl">
-              {/* Cuerpo del porcentaje */}
-              <circle cx="35" cy="35" r="22" fill="#A29BFE" stroke="#2D3436" strokeWidth="4"/>
-              <circle cx="35" cy="35" r="10" fill="#DFE6E9" stroke="#2D3436" strokeWidth="2"/>
-              <circle cx="75" cy="75" r="22" fill="#A29BFE" stroke="#2D3436" strokeWidth="4"/>
-              <circle cx="75" cy="75" r="10" fill="#DFE6E9" stroke="#2D3436" strokeWidth="2"/>
-              {/* Linea diagonal */}
-              <line x1="25" y1="85" x2="85" y2="25" stroke="#2D3436" strokeWidth="6" strokeLinecap="round"/>
-              {/* Ojos en el circulo superior */}
-              <circle cx="30" cy="32" r="4" fill="#2D3436"/>
-              <circle cx="42" cy="32" r="4" fill="#2D3436"/>
-              <circle cx="31" cy="30" r="1.5" fill="white"/>
-              <circle cx="43" cy="30" r="1.5" fill="white"/>
-              {/* Sonrisa */}
-              <path d="M28 42 Q36 48 44 42" stroke="#2D3436" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-              {/* Piernas */}
-              <rect x="25" y="95" width="12" height="30" rx="6" fill="#FDCB6E" stroke="#2D3436" strokeWidth="3"/>
-              <rect x="45" y="95" width="12" height="30" rx="6" fill="#FDCB6E" stroke="#2D3436" strokeWidth="3"/>
-              {/* Zapatos */}
-              <ellipse cx="31" cy="128" rx="10" ry="6" fill="#FF7675" stroke="#2D3436" strokeWidth="3"/>
-              <ellipse cx="51" cy="128" rx="10" ry="6" fill="#FF7675" stroke="#2D3436" strokeWidth="3"/>
-            </svg>
+            <img
+              src="/stickers/pencil-holder.png"
+              alt="Pencil holder sticker"
+              className="w-28 md:w-36 lg:w-40 drop-shadow-2xl"
+            />
           </div>
 
-          {/* LLAVE CON OJOS - Left Middle */}
+          {/* Maleta - Left Middle */}
           <div className="absolute top-1/2 -translate-y-1/2 -left-2 md:left-6 lg:left-16 float hidden md:block" style={{ animationDelay: '2s' }}>
-            <svg width="130" height="70" viewBox="0 0 130 70" className="drop-shadow-xl">
-              {/* Cabeza de la llave */}
-              <circle cx="30" cy="35" r="26" fill="#00B894" stroke="#2D3436" strokeWidth="4"/>
-              <circle cx="30" cy="35" r="12" fill="#2D3436"/>
-              {/* Cuerpo de la llave */}
-              <rect x="50" y="28" width="70" height="14" rx="4" fill="#00B894" stroke="#2D3436" strokeWidth="3"/>
-              {/* Dientes */}
-              <rect x="100" y="28" width="8" height="22" rx="2" fill="#00B894" stroke="#2D3436" strokeWidth="3"/>
-              <rect x="112" y="28" width="8" height="18" rx="2" fill="#00B894" stroke="#2D3436" strokeWidth="3"/>
-              {/* Ojos */}
-              <ellipse cx="22" cy="30" rx="7" ry="8" fill="white" stroke="#2D3436" strokeWidth="2"/>
-              <ellipse cx="40" cy="30" rx="7" ry="8" fill="white" stroke="#2D3436" strokeWidth="2"/>
-              <circle cx="24" cy="31" r="4" fill="#2D3436"/>
-              <circle cx="42" cy="31" r="4" fill="#2D3436"/>
-              <circle cx="25" cy="29" r="1.5" fill="white"/>
-              <circle cx="43" cy="29" r="1.5" fill="white"/>
-              {/* Sonrisa */}
-              <path d="M24 42 Q31 48 40 42" stroke="#2D3436" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-              {/* Mejillas */}
-              <circle cx="15" cy="38" r="4" fill="#FDCB6E" opacity="0.6"/>
-              <circle cx="47" cy="38" r="4" fill="#FDCB6E" opacity="0.6"/>
-            </svg>
+            <img
+              src="/stickers/suitcase.png"
+              alt="Suitcase sticker"
+              className="w-32 md:w-40 lg:w-48 drop-shadow-2xl"
+            />
           </div>
 
-          {/* BOLI - Right Middle */}
+          {/* Rollo de cinta - Right Middle */}
           <div className="absolute top-2/3 -translate-y-1/2 right-2 md:right-8 lg:right-20 float hidden md:block" style={{ animationDelay: '3s' }}>
-            <svg width="50" height="140" viewBox="0 0 50 140" className="drop-shadow-xl">
-              {/* Tapa del boli */}
-              <rect x="12" y="5" width="26" height="20" rx="4" fill="#74B9FF" stroke="#2D3436" strokeWidth="3"/>
-              <rect x="18" y="0" width="14" height="10" rx="3" fill="#5B9BD5" stroke="#2D3436" strokeWidth="2"/>
-              {/* Cuerpo del boli */}
-              <rect x="10" y="25" width="30" height="85" rx="4" fill="#FF7675" stroke="#2D3436" strokeWidth="3"/>
-              {/* Grip */}
-              <rect x="12" y="80" width="26" height="20" rx="3" fill="#636E72" stroke="#2D3436" strokeWidth="2"/>
-              {/* Punta */}
-              <polygon points="25,140 10,110 40,110" fill="#FDCB6E" stroke="#2D3436" strokeWidth="3" strokeLinejoin="round"/>
-              <polygon points="25,140 20,120 30,120" fill="#2D3436"/>
-              {/* Ojos en el cuerpo */}
-              <circle cx="18" cy="50" r="5" fill="white" stroke="#2D3436" strokeWidth="2"/>
-              <circle cx="32" cy="50" r="5" fill="white" stroke="#2D3436" strokeWidth="2"/>
-              <circle cx="19" cy="51" r="2.5" fill="#2D3436"/>
-              <circle cx="33" cy="51" r="2.5" fill="#2D3436"/>
-              {/* Sonrisa */}
-              <path d="M18 62 Q25 68 32 62" stroke="#2D3436" strokeWidth="2" fill="none" strokeLinecap="round"/>
-              {/* Detalle decorativo */}
-              <line x1="15" y1="35" x2="35" y2="35" stroke="#2D3436" strokeWidth="2"/>
-              <line x1="15" y1="42" x2="35" y2="42" stroke="#2D3436" strokeWidth="2"/>
-            </svg>
+            <img
+              src="/stickers/tape.png"
+              alt="Tape sticker"
+              className="w-24 md:w-28 lg:w-32 drop-shadow-2xl"
+            />
           </div>
 
-          {/* BILLETE CON LENGUA - Bottom Left */}
+          {/* Billetera - Bottom Left */}
           <div className="absolute bottom-24 left-8 md:left-16 lg:left-28 float hidden lg:block" style={{ animationDelay: '1s' }}>
-            <svg width="140" height="90" viewBox="0 0 140 90" className="drop-shadow-xl">
-              {/* Cuerpo del billete */}
-              <rect x="5" y="10" width="130" height="70" rx="8" fill="#00B894" stroke="#2D3436" strokeWidth="4"/>
-              {/* Borde interior */}
-              <rect x="15" y="20" width="110" height="50" rx="4" fill="none" stroke="#2D3436" strokeWidth="2" strokeDasharray="6 3"/>
-              {/* Simbolo euro grande */}
-              <text x="100" y="58" textAnchor="middle" fill="#FDCB6E" fontSize="36" fontWeight="bold" stroke="#2D3436" strokeWidth="1">€</text>
-              {/* Ojos */}
-              <ellipse cx="40" cy="38" rx="12" ry="14" fill="white" stroke="#2D3436" strokeWidth="3"/>
-              <ellipse cx="70" cy="38" rx="12" ry="14" fill="white" stroke="#2D3436" strokeWidth="3"/>
-              <circle cx="43" cy="40" r="6" fill="#2D3436"/>
-              <circle cx="73" cy="40" r="6" fill="#2D3436"/>
-              <circle cx="45" cy="38" r="2" fill="white"/>
-              <circle cx="75" cy="38" r="2" fill="white"/>
-              {/* Cejas traviesas */}
-              <path d="M28 26 Q40 20 52 26" stroke="#2D3436" strokeWidth="3" fill="none" strokeLinecap="round"/>
-              <path d="M58 26 Q70 20 82 26" stroke="#2D3436" strokeWidth="3" fill="none" strokeLinecap="round"/>
-              {/* Boca abierta */}
-              <ellipse cx="55" cy="60" rx="15" ry="10" fill="#2D3436"/>
-              {/* Lengua sacada */}
-              <ellipse cx="55" cy="68" rx="10" ry="12" fill="#FF7675" stroke="#2D3436" strokeWidth="2"/>
-              <path d="M50 68 L55 78 L60 68" fill="#FF7675" stroke="#E17055" strokeWidth="1"/>
-              {/* Mejillas */}
-              <circle cx="25" cy="50" r="6" fill="#FDCB6E" opacity="0.5"/>
-              <circle cx="85" cy="50" r="6" fill="#FDCB6E" opacity="0.5"/>
-            </svg>
+            <img
+              src="/stickers/wallet.png"
+              alt="Wallet sticker"
+              className="w-28 md:w-32 lg:w-36 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Buzón - Bottom Right */}
+          <div className="absolute bottom-32 right-8 md:right-16 lg:right-28 float hidden lg:block" style={{ animationDelay: '2.2s' }}>
+            <img
+              src="/stickers/mailbox.png"
+              alt="Mailbox sticker"
+              className="w-24 md:w-28 lg:w-32 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Carpeta - Top Center-Left */}
+          <div className="absolute top-32 left-1/4 float hidden xl:block" style={{ animationDelay: '1.2s' }}>
+            <img
+              src="/stickers/folder.png"
+              alt="Folder sticker"
+              className="w-24 md:w-28 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Caja - Bottom Center-Right */}
+          <div className="absolute bottom-40 right-1/3 float hidden xl:block" style={{ animationDelay: '2.8s' }}>
+            <img
+              src="/stickers/box.png"
+              alt="Box sticker"
+              className="w-28 md:w-32 drop-shadow-2xl"
+            />
           </div>
 
           {/* Estrellas decorativas */}
