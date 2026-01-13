@@ -23,90 +23,144 @@ const MortgageCalculator = () => {
         {/* Decorative Stickers */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-          {/* Llavero - Top Left */}
-          <div className="absolute top-16 left-4 md:left-12 lg:left-20 float" style={{ animationDelay: '0s' }}>
+          {/* Llavero - Top Left Corner */}
+          <div className="absolute top-8 left-2 md:left-8 lg:left-12 float" style={{ animationDelay: '0s' }}>
             <img
               src="/stickers/keychain.png"
               alt="Keychain sticker"
-              className="w-24 md:w-32 lg:w-36 drop-shadow-2xl"
-            />
-          </div>
-
-          {/* Porta-lápices - Top Right */}
-          <div className="absolute top-20 right-4 md:right-12 lg:right-24 float" style={{ animationDelay: '1.5s' }}>
-            <img
-              src="/stickers/pencil-holder.png"
-              alt="Pencil holder sticker"
-              className="w-28 md:w-36 lg:w-40 drop-shadow-2xl"
-            />
-          </div>
-
-          {/* Maleta - Left Middle */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-2 md:left-6 lg:left-16 float hidden md:block" style={{ animationDelay: '2s' }}>
-            <img
-              src="/stickers/suitcase.png"
-              alt="Suitcase sticker"
               className="w-32 md:w-40 lg:w-48 drop-shadow-2xl"
             />
           </div>
 
-          {/* Rollo de cinta - Right Middle */}
-          <div className="absolute top-2/3 -translate-y-1/2 right-2 md:right-8 lg:right-20 float hidden md:block" style={{ animationDelay: '3s' }}>
+          {/* Porta-lápices - Top Right Corner */}
+          <div className="absolute top-12 right-2 md:right-8 lg:right-12 float" style={{ animationDelay: '1.5s' }}>
+            <img
+              src="/stickers/pencil-holder.png"
+              alt="Pencil holder sticker"
+              className="w-36 md:w-44 lg:w-52 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Maleta - Left Side */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:left-4 lg:left-8 float" style={{ animationDelay: '2s' }}>
+            <img
+              src="/stickers/suitcase.png"
+              alt="Suitcase sticker"
+              className="w-40 md:w-52 lg:w-60 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Rollo de cinta - Right Side Upper */}
+          <div className="absolute top-1/3 right-2 md:right-6 lg:right-12 float" style={{ animationDelay: '3s' }}>
             <img
               src="/stickers/tape.png"
               alt="Tape sticker"
-              className="w-24 md:w-28 lg:w-32 drop-shadow-2xl"
+              className="w-32 md:w-40 lg:w-48 drop-shadow-2xl"
             />
           </div>
 
           {/* Billetera - Bottom Left */}
-          <div className="absolute bottom-24 left-8 md:left-16 lg:left-28 float hidden lg:block" style={{ animationDelay: '1s' }}>
+          <div className="absolute bottom-8 left-4 md:left-12 lg:left-20 float" style={{ animationDelay: '1s' }}>
             <img
               src="/stickers/wallet.png"
               alt="Wallet sticker"
-              className="w-28 md:w-32 lg:w-36 drop-shadow-2xl"
+              className="w-36 md:w-44 lg:w-52 drop-shadow-2xl"
             />
           </div>
 
           {/* Buzón - Bottom Right */}
-          <div className="absolute bottom-32 right-8 md:right-16 lg:right-28 float hidden lg:block" style={{ animationDelay: '2.2s' }}>
+          <div className="absolute bottom-12 right-4 md:right-12 lg:right-20 float" style={{ animationDelay: '2.2s' }}>
             <img
               src="/stickers/mailbox.png"
               alt="Mailbox sticker"
-              className="w-24 md:w-28 lg:w-32 drop-shadow-2xl"
+              className="w-32 md:w-40 lg:w-48 drop-shadow-2xl"
             />
           </div>
 
-          {/* Carpeta - Top Center-Left */}
-          <div className="absolute top-32 left-1/4 float hidden xl:block" style={{ animationDelay: '1.2s' }}>
+          {/* Carpeta/Tablero - Left Side Upper */}
+          <div className="absolute top-44 left-2 md:left-6 lg:left-10 float hidden md:block" style={{ animationDelay: '1.2s' }}>
             <img
               src="/stickers/folder.png"
               alt="Folder sticker"
-              className="w-24 md:w-28 drop-shadow-2xl"
+              className="w-36 md:w-44 lg:w-52 drop-shadow-2xl"
             />
           </div>
 
-          {/* Caja - Bottom Center-Right */}
-          <div className="absolute bottom-40 right-1/3 float hidden xl:block" style={{ animationDelay: '2.8s' }}>
+          {/* Caja tetrabrik - Bottom Center-Right */}
+          <div className="absolute bottom-24 right-1/4 float hidden md:block" style={{ animationDelay: '2.8s' }}>
             <img
               src="/stickers/box.png"
               alt="Box sticker"
-              className="w-28 md:w-32 drop-shadow-2xl"
+              className="w-36 md:w-44 lg:w-52 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Caja almacenaje - Right Side Upper */}
+          <div className="absolute top-48 right-2 md:right-6 lg:right-10 float hidden lg:block" style={{ animationDelay: '0.8s' }}>
+            <img
+              src="/stickers/storage-crate.png"
+              alt="Storage crate sticker"
+              className="w-32 md:w-40 lg:w-48 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Globo - Left Side */}
+          <div className="absolute top-1/3 left-2 md:left-4 lg:left-8 float hidden md:block" style={{ animationDelay: '1.7s' }}>
+            <img
+              src="/stickers/balloon.png"
+              alt="Balloon sticker"
+              className="w-28 md:w-36 lg:w-44 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Carpetas documentos - Right Lower Area */}
+          <div className="absolute bottom-1/3 right-2 md:right-8 float hidden md:block" style={{ animationDelay: '2.3s' }}>
+            <img
+              src="/stickers/file-folders.png"
+              alt="File folders sticker"
+              className="w-32 md:w-40 lg:w-48 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Nevera - Bottom Left Area */}
+          <div className="absolute bottom-1/4 left-1/4 float hidden lg:block" style={{ animationDelay: '3.2s' }}>
+            <img
+              src="/stickers/fridge.png"
+              alt="Fridge sticker"
+              className="w-28 md:w-36 lg:w-44 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Caja organizadora - Right Side Mid */}
+          <div className="absolute top-2/3 right-2 md:right-6 lg:right-10 float hidden lg:block" style={{ animationDelay: '0.3s' }}>
+            <img
+              src="/stickers/organizer-box.png"
+              alt="Organizer box sticker"
+              className="w-32 md:w-40 lg:w-48 drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Bolsa de papel - Bottom Center-Left */}
+          <div className="absolute bottom-8 left-1/3 float hidden lg:block" style={{ animationDelay: '2.6s' }}>
+            <img
+              src="/stickers/paper-bag.png"
+              alt="Paper bag sticker"
+              className="w-28 md:w-36 lg:w-44 drop-shadow-2xl"
             />
           </div>
 
           {/* Estrellas decorativas */}
-          <div className="absolute top-40 left-1/4 text-yellow-400 float" style={{ animationDelay: '0.5s' }}>
+          <div className="absolute top-1/2 left-16 text-yellow-400 float hidden md:block" style={{ animationDelay: '0.5s' }}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z"/>
             </svg>
           </div>
-          <div className="absolute bottom-48 right-1/3 text-yellow-400 float" style={{ animationDelay: '1.8s' }}>
+          <div className="absolute bottom-48 right-16 text-yellow-400 float hidden md:block" style={{ animationDelay: '1.8s' }}>
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z"/>
             </svg>
           </div>
-          <div className="absolute top-1/3 left-1/2 text-yellow-400 float hidden lg:block" style={{ animationDelay: '2.5s' }}>
+          <div className="absolute bottom-1/3 left-8 text-yellow-400 float hidden lg:block" style={{ animationDelay: '2.5s' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8Z"/>
             </svg>
@@ -123,11 +177,11 @@ const MortgageCalculator = () => {
             <div className="text-center space-y-6 animate-slide-up">
               {/* Title */}
               <div className="space-y-3">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
-                  Decide tu hipoteca
-                  <span className="block text-primary">con IA</span>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
+                  Elige tu hipoteca
+                  <span className="block text-primary">sin que te la líen</span>
                 </h1>
-                <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
+                <p className="text-foreground text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
                   Compara ofertas y calcula tus pagos mensuales de forma sencilla
                 </p>
               </div>
@@ -136,7 +190,7 @@ const MortgageCalculator = () => {
               <div className="flex flex-wrap justify-center gap-3 pt-2">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
                   <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-medium text-foreground/80">Calculo instantaneo</span>
+                  <span className="text-sm font-medium text-foreground/80">Cálculo instantáneo</span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
                   <div className="w-2 h-2 rounded-full bg-emerald-500" />
@@ -186,7 +240,7 @@ const MortgageCalculator = () => {
             {/* Footer info */}
             <div className="text-center pt-8 animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <p className="text-sm text-muted-foreground">
-                Los calculos son orientativos y no constituyen una oferta vinculante
+                Los cálculos son orientativos. No somos ningún banco y solo queremos ayudarte, por lo que esto no es ninguna oferta.
               </p>
             </div>
           </div>

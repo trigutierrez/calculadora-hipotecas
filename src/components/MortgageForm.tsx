@@ -32,7 +32,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
   const [annualInsurance, setAnnualInsurance] = useState<string>("");
   const [results, setResults] = useState<CalculationResults | null>(null);
 
-  // Calculo automatico cuando cambian los valores
+  // Cálculo automático cuando cambian los valores
   useEffect(() => {
     const principal = parseFloat(loanAmount);
     const annualRate = parseFloat(interestRate);
@@ -101,7 +101,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
   const chartData = results
     ? [
         {
-          name: "Prestamo",
+          name: "Préstamo",
           value: parseFloat(loanAmount),
         },
         {
@@ -141,7 +141,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
 
     doc.setFontSize(10);
     doc.setTextColor(127, 140, 141);
-    doc.text('Calculo detallado de tu hipoteca', 15, 38);
+    doc.text('Cálculo detallado de tu hipoteca', 15, 38);
 
     doc.setDrawColor(34, 139, 87);
     doc.setLineWidth(0.5);
@@ -152,9 +152,9 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
     doc.text('Datos de la Hipoteca', 15, 52);
 
     const inputData = [
-      ['Total del Prestamo', formatCurrency(parseFloat(loanAmount))],
-      ['Tasa de Interes Anual', `${interestRate}%`],
-      ['Plazo del Prestamo', `${loanTerm} anos`],
+      ['Total del Préstamo', formatCurrency(parseFloat(loanAmount))],
+      ['Tasa de Interés Anual', `${interestRate}%`],
+      ['Plazo del Préstamo', `${loanTerm} años`],
       ['Seguro Anual', annualInsurance ? formatCurrency(parseFloat(annualInsurance)) : 'No incluido'],
     ];
 
@@ -174,14 +174,14 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
     const finalY = (doc as any).lastAutoTable.finalY + 10;
     doc.setFontSize(14);
     doc.setTextColor(44, 62, 80);
-    doc.text('Resultados del Calculo', 15, finalY);
+    doc.text('Resultados del Cálculo', 15, finalY);
 
     const resultsData = [
-      ['Pago Mensual (Capital + Interes)', formatCurrency(results.monthlyPayment)],
+      ['Pago Mensual (Capital + Interés)', formatCurrency(results.monthlyPayment)],
       ['Seguro Mensual', formatCurrency(results.monthlyInsurance)],
       ['Pago Mensual Total', formatCurrency(results.monthlyPayment + results.monthlyInsurance)],
-      ['Interes Total', formatCurrency(results.totalInterest)],
-      [`Total Seguros (${loanTerm} anos)`, formatCurrency(results.totalInsurance)],
+      ['Interés Total', formatCurrency(results.totalInterest)],
+      [`Total Seguros (${loanTerm} años)`, formatCurrency(results.totalInsurance)],
       ['Coste Total', formatCurrency(results.totalCost)],
     ];
 
@@ -231,7 +231,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
               <h2 className="text-lg font-bold text-foreground">
                 {bank || `Hipoteca ${formIndex}`}
               </h2>
-              <p className="text-sm text-muted-foreground">Detalles del prestamo</p>
+              <p className="text-sm text-muted-foreground">Detalles del préstamo</p>
             </div>
           </div>
           {showRemove && (
@@ -301,7 +301,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
           <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors">
             <div className="flex items-center gap-2">
               <Euro className="w-4 h-4 text-primary" />
-              <Label className="text-sm text-muted-foreground font-medium">Importe del prestamo</Label>
+              <Label className="text-sm text-muted-foreground font-medium">Importe del préstamo</Label>
             </div>
             <Input
               type="number"
@@ -321,7 +321,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
           <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors">
             <div className="flex items-center gap-2">
               <Percent className="w-4 h-4 text-primary" />
-              <Label className="text-sm text-muted-foreground font-medium">Interes anual (%)</Label>
+              <Label className="text-sm text-muted-foreground font-medium">Interés anual (%)</Label>
             </div>
             <Input
               type="number"
@@ -337,7 +337,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-primary" />
-              <Label className="text-sm text-muted-foreground font-medium">Plazo del prestamo</Label>
+              <Label className="text-sm text-muted-foreground font-medium">Plazo del préstamo</Label>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <button
@@ -348,7 +348,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
                     : "bg-muted/50 text-foreground hover:bg-muted"
                 }`}
               >
-                25 anos
+                25 años
               </button>
               <button
                 onClick={() => setLoanTerm("30")}
@@ -358,7 +358,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
                     : "bg-muted/50 text-foreground hover:bg-muted"
                 }`}
               >
-                30 anos
+                30 años
               </button>
             </div>
           </div>
@@ -379,7 +379,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
           <div className="bg-amber-50 rounded-2xl p-4 space-y-3 border border-amber-200/50">
             <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-amber-600" />
-              <Label className="text-sm text-amber-700 font-medium">Seguro anual (opcional)</Label>
+              <Label className="text-sm text-amber-700 font-medium">Coste de los seguros al año</Label>
             </div>
             <Input
               type="number"
@@ -391,7 +391,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
             {results && parseFloat(annualInsurance) > 0 && (
               <div className="pt-2 border-t border-amber-200">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-amber-700">Total seguros ({loanTerm} anos)</span>
+                  <span className="text-sm text-amber-700">Total seguros ({loanTerm} años)</span>
                   <span className="text-lg font-bold text-amber-700">
                     {formatCurrency(results.totalInsurance)}
                   </span>
@@ -410,7 +410,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
         {/* Footer Summary */}
         <div className="px-6 py-5 bg-foreground text-white">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-white/70 text-sm">Interes total ({loanTerm} anos)</span>
+            <span className="text-white/70 text-sm">Interés total ({loanTerm} años)</span>
             <span className="font-semibold">
               {results ? formatCurrency(results.totalInterest) : "---"}
             </span>
@@ -441,7 +441,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
             <div className="px-6 pt-6 pb-2">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Distribucion del coste</h3>
+                  <h3 className="text-lg font-bold text-foreground">Distribución del coste</h3>
                   <p className="text-sm text-muted-foreground">Desglose visual de tu hipoteca</p>
                 </div>
                 {(bank || bankLogo) && (
