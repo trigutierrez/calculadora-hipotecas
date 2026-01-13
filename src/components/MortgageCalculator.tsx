@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MortgageForm from "./MortgageForm";
+import AppraisalCalculator from "./AppraisalCalculator";
 
 const MortgageCalculator = () => {
   const [mortgageCount, setMortgageCount] = useState<number>(1);
@@ -172,77 +174,105 @@ const MortgageCalculator = () => {
         </div>
 
         <div className="relative z-10 py-12 px-4 md:py-16 lg:py-20">
-          <div className="max-w-6xl mx-auto space-y-12">
-            {/* Header */}
-            <div className="text-center space-y-6 animate-slide-up">
-              {/* Title */}
-              <div className="space-y-3">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
-                  Elige tu hipoteca
-                  <span className="block text-primary">sin que te la líen</span>
-                </h1>
-                <p className="text-foreground text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
-                  Compara ofertas y calcula tus pagos mensuales de forma sencilla
-                </p>
+          <div className="max-w-6xl mx-auto">
+            <Tabs defaultValue="hipotecas" className="w-full">
+              {/* Tabs Navigation */}
+              <div className="flex justify-center mb-10">
+                <TabsList className="bg-white/80 backdrop-blur-sm border border-primary/10 shadow-lg rounded-full p-1">
+                  <TabsTrigger
+                    value="hipotecas"
+                    className="rounded-full px-6 py-2.5 text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
+                  >
+                    Calculadora de Hipotecas
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="tasacion"
+                    className="rounded-full px-6 py-2.5 text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
+                  >
+                    Calculadora de Tasación
+                  </TabsTrigger>
+                </TabsList>
               </div>
 
-              {/* Stats badges */}
-              <div className="flex flex-wrap justify-center gap-3 pt-2">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
-                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-medium text-foreground/80">Cálculo instantáneo</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <span className="text-sm font-medium text-foreground/80">Compara hasta 4 hipotecas</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
-                  <div className="w-2 h-2 rounded-full bg-amber-500" />
-                  <span className="text-sm font-medium text-foreground/80">Exporta a PDF</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Mortgage Forms Grid */}
-            <div className={`grid gap-8 ${mortgageCount > 1 ? 'lg:grid-cols-2' : 'max-w-2xl mx-auto'}`}>
-              {Array.from({ length: mortgageCount }).map((_, index) => (
-                <div
-                  key={index}
-                  className="animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <MortgageForm
-                    onRemove={() => removeComparison(index)}
-                    showRemove={mortgageCount > 1}
-                    formIndex={index + 1}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Add Comparison Button */}
-            {mortgageCount < 4 && (
-              <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                <Button
-                  onClick={addComparison}
-                  size="lg"
-                  variant="outline"
-                  className="gap-3 px-8 py-6 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-dashed border-primary/30 hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Plus className="h-5 w-5 text-primary" />
+              {/* Tab: Hipotecas */}
+              <TabsContent value="hipotecas" className="space-y-12">
+                {/* Header */}
+                <div className="text-center space-y-6 animate-slide-up">
+                  {/* Title */}
+                  <div className="space-y-3">
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
+                      Elige tu hipoteca
+                      <span className="block text-primary">sin que te la líen</span>
+                    </h1>
+                    <p className="text-foreground text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
+                      Compara ofertas y calcula tus pagos mensuales de forma sencilla
+                    </p>
                   </div>
-                  <span className="text-base font-semibold">Comparar otra hipoteca</span>
-                </Button>
-              </div>
-            )}
 
-            {/* Footer info */}
-            <div className="text-center pt-8 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <p className="text-sm text-muted-foreground">
-                Los cálculos son orientativos. No somos ningún banco y solo queremos ayudarte, por lo que esto no es ninguna oferta.
-              </p>
-            </div>
+                  {/* Stats badges */}
+                  <div className="flex flex-wrap justify-center gap-3 pt-2">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
+                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                      <span className="text-sm font-medium text-foreground/80">Cálculo instantáneo</span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <span className="text-sm font-medium text-foreground/80">Compara hasta 4 hipotecas</span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
+                      <div className="w-2 h-2 rounded-full bg-amber-500" />
+                      <span className="text-sm font-medium text-foreground/80">Exporta a PDF</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mortgage Forms Grid */}
+                <div className={`grid gap-8 ${mortgageCount > 1 ? 'lg:grid-cols-2' : 'max-w-2xl mx-auto'}`}>
+                  {Array.from({ length: mortgageCount }).map((_, index) => (
+                    <div
+                      key={index}
+                      className="animate-scale-in"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <MortgageForm
+                        onRemove={() => removeComparison(index)}
+                        showRemove={mortgageCount > 1}
+                        formIndex={index + 1}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Add Comparison Button */}
+                {mortgageCount < 4 && (
+                  <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                    <Button
+                      onClick={addComparison}
+                      size="lg"
+                      variant="outline"
+                      className="gap-3 px-8 py-6 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-dashed border-primary/30 hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <Plus className="h-5 w-5 text-primary" />
+                      </div>
+                      <span className="text-base font-semibold">Comparar otra hipoteca</span>
+                    </Button>
+                  </div>
+                )}
+
+                {/* Footer info */}
+                <div className="text-center pt-8 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                  <p className="text-sm text-muted-foreground">
+                    Los cálculos son orientativos. No somos ningún banco y solo queremos ayudarte, por lo que esto no es ninguna oferta.
+                  </p>
+                </div>
+              </TabsContent>
+
+              {/* Tab: Tasación */}
+              <TabsContent value="tasacion">
+                <AppraisalCalculator />
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
       </div>

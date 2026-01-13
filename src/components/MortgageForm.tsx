@@ -249,7 +249,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
         {/* Form Content */}
         <div className="px-6 pb-6 space-y-4">
           {/* Bank Name Input */}
-          <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors">
+          <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors border-2 border-transparent focus-within:border-primary">
             <div className="flex items-center justify-between">
               <Label className="text-sm text-muted-foreground font-medium">Banco</Label>
               <Tooltip>
@@ -298,7 +298,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
           </div>
 
           {/* Loan Amount - Main Input */}
-          <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors">
+          <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors border-2 border-transparent focus-within:border-primary">
             <div className="flex items-center gap-2">
               <Euro className="w-4 h-4 text-primary" />
               <Label className="text-sm text-muted-foreground font-medium">Importe del préstamo</Label>
@@ -318,7 +318,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
           </div>
 
           {/* Interest Rate */}
-          <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors">
+          <div className="bg-muted/30 rounded-2xl p-4 space-y-3 hover:bg-muted/50 transition-colors border-2 border-transparent focus-within:border-primary">
             <div className="flex items-center gap-2">
               <Percent className="w-4 h-4 text-primary" />
               <Label className="text-sm text-muted-foreground font-medium">Interés anual (%)</Label>
