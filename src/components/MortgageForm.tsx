@@ -121,91 +121,123 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
     if (!results) return;
 
     const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.width;
+    const pageHeight = doc.internal.pageSize.height;
 
+    // Título izquierda
+    doc.setFontSize(20);
+    doc.setTextColor(44, 62, 80);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Resumen de la hipoteca', 15, 20);
+
+    // Fecha debajo del título
+    doc.setFontSize(10);
+    doc.setTextColor(150, 150, 150);
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Generado el ${new Date().toLocaleDateString('es-ES')}`, 15, 28);
+
+    // Nombre del banco grande arriba derecha
+    if (bank) {
+      doc.setFontSize(18);
+      doc.setTextColor(44, 62, 80);
+      doc.setFont('helvetica', 'bold');
+      doc.text(bank, pageWidth - 15, 20, { align: 'right' });
+    }
+
+    // Logo del banco si existe
     if (bankLogo) {
       try {
-        doc.addImage(bankLogo, 'PNG', doc.internal.pageSize.width - 50, 10, 35, 15);
+        doc.addImage(bankLogo, 'PNG', pageWidth - 45, 25, 30, 12);
       } catch (error) {
         console.error('Error adding logo to PDF:', error);
       }
     }
-    if (bank) {
-      doc.setFontSize(20);
-      doc.setTextColor(34, 139, 87);
-      doc.text(bank, doc.internal.pageSize.width - 15, bankLogo ? 30 : 20, { align: 'right' });
-    }
 
-    doc.setFontSize(24);
-    doc.setTextColor(44, 62, 80);
-    doc.text('Resumen de Hipoteca', 15, 30);
+    // Caja del pago mensual
+    doc.setFillColor(245, 247, 250);
+    doc.setDrawColor(44, 62, 80);
+    doc.setLineWidth(0.5);
+    doc.roundedRect(15, 40, pageWidth - 30, 30, 3, 3, 'FD');
 
     doc.setFontSize(10);
-    doc.setTextColor(127, 140, 141);
-    doc.text('Cálculo detallado de tu hipoteca', 15, 38);
+    doc.setTextColor(100, 100, 100);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Vas a pagar aproximadamente al mes', 20, 52);
 
-    doc.setDrawColor(34, 139, 87);
-    doc.setLineWidth(0.5);
-    doc.line(15, 42, doc.internal.pageSize.width - 15, 42);
-
-    doc.setFontSize(14);
+    doc.setFontSize(22);
     doc.setTextColor(44, 62, 80);
-    doc.text('Datos de la Hipoteca', 15, 52);
+    doc.setFont('helvetica', 'bold');
+    doc.text(formatCurrency(results.monthlyPayment + results.monthlyInsurance), 20, 64);
+
+    // Tabla datos de la hipoteca
+    doc.setFontSize(12);
+    doc.setTextColor(44, 62, 80);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Datos de la hipoteca', 15, 85);
 
     const inputData = [
-      ['Total del Préstamo', formatCurrency(parseFloat(loanAmount))],
-      ['Tasa de Interés Anual', `${interestRate}%`],
-      ['Plazo del Préstamo', `${loanTerm} años`],
-      ['Seguro Anual', annualInsurance ? formatCurrency(parseFloat(annualInsurance)) : 'No incluido'],
+      ['Importe del préstamo', formatCurrency(parseFloat(loanAmount))],
+      ['Tipo de interés anual', `${interestRate}%`],
+      ['Plazo del préstamo', `${loanTerm} años`],
+      ['Seguro anual', annualInsurance ? formatCurrency(parseFloat(annualInsurance)) : 'No incluido'],
     ];
 
     autoTable(doc, {
-      startY: 56,
+      startY: 90,
       head: [['Concepto', 'Valor']],
       body: inputData,
-      theme: 'striped',
-      headStyles: { fillColor: [34, 139, 87], fontSize: 11, fontStyle: 'bold' },
-      styles: { fontSize: 10 },
+      theme: 'grid',
+      styles: { fontSize: 10, cellPadding: 5, font: 'helvetica' },
+      headStyles: { fillColor: [44, 62, 80], textColor: [255, 255, 255], fontStyle: 'bold' },
       columnStyles: {
-        0: { cellWidth: 80, fontStyle: 'bold' },
-        1: { cellWidth: 'auto', halign: 'right' }
-      }
+        0: { cellWidth: 100 },
+        1: { cellWidth: 'auto', halign: 'right', fontStyle: 'bold' }
+      },
+      alternateRowStyles: { fillColor: [250, 250, 250] }
     });
 
-    const finalY = (doc as any).lastAutoTable.finalY + 10;
-    doc.setFontSize(14);
+    const finalY = (doc as any).lastAutoTable.finalY + 12;
+
+    // Tabla desglose de costes
+    doc.setFontSize(12);
     doc.setTextColor(44, 62, 80);
-    doc.text('Resultados del Cálculo', 15, finalY);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Desglose de costes', 15, finalY);
 
     const resultsData = [
-      ['Pago Mensual (Capital + Interés)', formatCurrency(results.monthlyPayment)],
-      ['Seguro Mensual', formatCurrency(results.monthlyInsurance)],
-      ['Pago Mensual Total', formatCurrency(results.monthlyPayment + results.monthlyInsurance)],
-      ['Interés Total', formatCurrency(results.totalInterest)],
-      [`Total Seguros (${loanTerm} años)`, formatCurrency(results.totalInsurance)],
-      ['Coste Total', formatCurrency(results.totalCost)],
+      ['Cuota mensual (capital + intereses)', formatCurrency(results.monthlyPayment)],
+      ['Seguro mensual', formatCurrency(results.monthlyInsurance)],
+      ['Total intereses a pagar', formatCurrency(results.totalInterest)],
+      [`Total seguros (${loanTerm} años)`, formatCurrency(results.totalInsurance)],
+      ['Coste total de la hipoteca', formatCurrency(results.totalCost)],
     ];
 
     autoTable(doc, {
-      startY: finalY + 4,
+      startY: finalY + 5,
       head: [['Concepto', 'Valor']],
       body: resultsData,
       theme: 'grid',
-      headStyles: { fillColor: [34, 139, 87], fontSize: 11, fontStyle: 'bold' },
-      styles: { fontSize: 10 },
+      styles: { fontSize: 10, cellPadding: 5, font: 'helvetica' },
+      headStyles: { fillColor: [44, 62, 80], textColor: [255, 255, 255], fontStyle: 'bold' },
       columnStyles: {
-        0: { cellWidth: 110, fontStyle: 'bold' },
-        1: { cellWidth: 'auto', halign: 'right', textColor: [34, 139, 87], fontStyle: 'bold' }
+        0: { cellWidth: 100 },
+        1: { cellWidth: 'auto', halign: 'right', fontStyle: 'bold' }
+      },
+      alternateRowStyles: { fillColor: [250, 250, 250] },
+      didParseCell: (data) => {
+        if (data.row.index === 4 && data.section === 'body') {
+          data.cell.styles.fillColor = [44, 62, 80];
+          data.cell.styles.textColor = [255, 255, 255];
+          data.cell.styles.fontStyle = 'bold';
+        }
       }
     });
 
-    const pageHeight = doc.internal.pageSize.height;
+    // Disclaimer
     doc.setFontSize(8);
-    doc.setTextColor(149, 165, 166);
-    doc.text(
-      `Generado el ${new Date().toLocaleDateString('es-ES')}`,
-      15,
-      pageHeight - 10
-    );
+    doc.setTextColor(170, 170, 170);
+    doc.setFont('helvetica', 'italic');
+    doc.text('Esto es un ejemplo generado con los datos que has introducido. No es una oferta oficial.', pageWidth / 2, pageHeight - 10, { align: 'center' });
 
     const fileName = bank ? `Hipoteca_${bank.replace(/\s+/g, '_')}.pdf` : 'Hipoteca.pdf';
     doc.save(fileName);
