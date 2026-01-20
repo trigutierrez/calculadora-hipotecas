@@ -220,7 +220,7 @@ const MortgageCalculator = () => {
                       <span className="text-sm font-medium text-foreground/80">Compara hasta 4 hipotecas</span>
                     </div>
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
-                      <div className="w-2 h-2 rounded-full bg-amber-500" />
+                      <div className="w-2 h-2 rounded-full bg-primary" />
                       <span className="text-sm font-medium text-foreground/80">Exporta a PDF</span>
                     </div>
                   </div>

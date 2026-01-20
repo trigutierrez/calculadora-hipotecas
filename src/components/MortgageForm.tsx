@@ -409,7 +409,7 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
             </div>
             <Input
               type="number"
-              placeholder="1200"
+              placeholder="0"
               value={annualInsurance}
               onChange={(e) => setAnnualInsurance(e.target.value)}
               className="border-0 bg-transparent text-2xl font-bold number-display placeholder:text-amber-300 focus-visible:ring-0 p-0 h-auto text-amber-700"
