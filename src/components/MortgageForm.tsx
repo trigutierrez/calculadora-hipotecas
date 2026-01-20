@@ -5,6 +5,7 @@ import autoTable from "jspdf-autotable";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { PieChart, Pie, Cell, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from "recharts";
 import { toast } from "sonner";
@@ -366,32 +367,25 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
           </div>
 
           {/* Loan Term Selection */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-primary" />
-              <Label className="text-sm text-muted-foreground font-medium">Plazo del préstamo</Label>
+          <div className="bg-muted/30 rounded-2xl p-4 space-y-4 hover:bg-muted/50 transition-colors">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-primary" />
+                <Label className="text-sm text-muted-foreground font-medium">Plazo del préstamo</Label>
+              </div>
+              <span className="text-2xl font-bold text-primary">{loanTerm} años</span>
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                onClick={() => setLoanTerm("25")}
-                className={`py-4 px-6 rounded-2xl font-semibold transition-all duration-300 ${
-                  loanTerm === "25"
-                    ? "bg-primary text-white shadow-lg shadow-primary/25"
-                    : "bg-muted/50 text-foreground hover:bg-muted"
-                }`}
-              >
-                25 años
-              </button>
-              <button
-                onClick={() => setLoanTerm("30")}
-                className={`py-4 px-6 rounded-2xl font-semibold transition-all duration-300 ${
-                  loanTerm === "30"
-                    ? "bg-primary text-white shadow-lg shadow-primary/25"
-                    : "bg-muted/50 text-foreground hover:bg-muted"
-                }`}
-              >
-                30 años
-              </button>
+            <Slider
+              value={[parseInt(loanTerm)]}
+              onValueChange={(value) => setLoanTerm(value[0].toString())}
+              min={5}
+              max={40}
+              step={1}
+              className="w-full"
+            />
+            <div className="flex justify-between text-xs text-muted-foreground">
+              <span>5 años</span>
+              <span>40 años</span>
             </div>
           </div>
 

@@ -177,19 +177,19 @@ const MortgageCalculator = () => {
           <div className="max-w-6xl mx-auto">
             <Tabs defaultValue="hipotecas" className="w-full">
               {/* Tabs Navigation */}
-              <div className="flex justify-center mb-10">
-                <TabsList className="bg-white/80 backdrop-blur-sm border border-primary/10 shadow-lg rounded-full p-1">
+              <div className="flex justify-center mb-10 px-2">
+                <TabsList className="bg-white/80 backdrop-blur-sm border border-primary/10 shadow-lg rounded-full p-1 flex-wrap h-auto gap-1">
                   <TabsTrigger
                     value="hipotecas"
-                    className="rounded-full px-6 py-2.5 text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
+                    className="rounded-full px-3 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white transition-all whitespace-nowrap"
                   >
-                    Calculadora de Hipotecas
+                    Hipotecas
                   </TabsTrigger>
                   <TabsTrigger
                     value="tasacion"
-                    className="rounded-full px-6 py-2.5 text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
+                    className="rounded-full px-3 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-semibold data-[state=active]:bg-primary data-[state=active]:text-white transition-all whitespace-nowrap"
                   >
-                    Calculadora de Tasación
+                    Tasación
                   </TabsTrigger>
                 </TabsList>
               </div>
