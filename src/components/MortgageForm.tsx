@@ -125,6 +125,15 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
     const pageWidth = doc.internal.pageSize.width;
     const pageHeight = doc.internal.pageSize.height;
 
+    // Marca de agua diagonal
+    doc.setFontSize(50);
+    doc.setTextColor(230, 230, 230);
+    doc.setFont('helvetica', 'bold');
+    doc.text('hipotecadora.es', pageWidth / 2, pageHeight / 2, {
+      align: 'center',
+      angle: 45,
+    });
+
     // Título izquierda
     doc.setFontSize(20);
     doc.setTextColor(44, 62, 80);
