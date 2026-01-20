@@ -195,7 +195,7 @@ const MortgageCalculator = () => {
               </div>
 
               {/* Tab: Hipotecas */}
-              <TabsContent value="hipotecas" className="space-y-12">
+              <TabsContent value="hipotecas" className="space-y-12 data-[state=inactive]:hidden" forceMount>
                 {/* Header */}
                 <div className="text-center space-y-6 animate-slide-up">
                   {/* Title */}
@@ -269,7 +269,7 @@ const MortgageCalculator = () => {
               </TabsContent>
 
               {/* Tab: Tasación */}
-              <TabsContent value="tasacion">
+              <TabsContent value="tasacion" className="data-[state=inactive]:hidden" forceMount>
                 <AppraisalCalculator />
               </TabsContent>
             </Tabs>
