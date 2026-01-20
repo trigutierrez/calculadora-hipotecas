@@ -37,14 +37,16 @@ const AppraisalCalculator = () => {
   return (
     <div className="max-w-2xl mx-auto space-y-8">
       {/* Header */}
-      <div className="text-center space-y-3">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-          Calcula lo que pueden ofrecerte
-          <span className="block text-primary">y entiende la tasación</span>
-        </h1>
-        <p className="text-foreground text-lg max-w-xl mx-auto leading-relaxed">
-          Descubre cuánto te financiará el banco y cuánto necesitas ahorrar
-        </p>
+      <div className="text-center space-y-6 animate-slide-up">
+        <div className="space-y-3">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
+            Calcula que el banco
+            <span className="block text-primary">no te haga ghosting</span>
+          </h1>
+          <p className="text-foreground text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
+            Descubre cuánto te financiará el banco y cuánto necesitas ahorrar
+          </p>
+        </div>
       </div>
 
       {/* Calculator Card */}

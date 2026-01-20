@@ -201,8 +201,8 @@ const MortgageCalculator = () => {
                   {/* Title */}
                   <div className="space-y-3">
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
-                      Elige tu hipoteca
-                      <span className="block text-primary">sin que te la líen</span>
+                      Compara tu hipoteca
+                      <span className="block text-primary">antes de hacer match</span>
                     </h1>
                     <p className="text-foreground text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
                       Compara ofertas y calcula tus pagos mensuales de forma sencilla
@@ -216,7 +216,7 @@ const MortgageCalculator = () => {
                       <span className="text-sm font-medium text-foreground/80">Cálculo instantáneo</span>
                     </div>
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
-                      <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <div className="w-2 h-2 rounded-full bg-primary" />
                       <span className="text-sm font-medium text-foreground/80">Compara hasta 4 hipotecas</span>
                     </div>
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-primary/10 shadow-sm">
