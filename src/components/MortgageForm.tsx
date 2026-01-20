@@ -125,15 +125,6 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
     const pageWidth = doc.internal.pageSize.width;
     const pageHeight = doc.internal.pageSize.height;
 
-    // Marca de agua diagonal
-    doc.setFontSize(50);
-    doc.setTextColor(230, 230, 230);
-    doc.setFont('helvetica', 'bold');
-    doc.text('hipotecadora.es', pageWidth / 2, pageHeight / 2, {
-      align: 'center',
-      angle: 45,
-    });
-
     // Título izquierda
     doc.setFontSize(20);
     doc.setTextColor(44, 62, 80);
@@ -247,7 +238,13 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
     doc.setFontSize(8);
     doc.setTextColor(170, 170, 170);
     doc.setFont('helvetica', 'italic');
-    doc.text('Esto es un ejemplo generado con los datos que has introducido. No es una oferta oficial.', pageWidth / 2, pageHeight - 10, { align: 'center' });
+    doc.text('Esto es un ejemplo generado con los datos que has introducido. No es una oferta oficial.', pageWidth / 2, pageHeight - 15, { align: 'center' });
+
+    // Marca de agua
+    doc.setFontSize(10);
+    doc.setTextColor(150, 150, 150);
+    doc.setFont('helvetica', 'normal');
+    doc.text('hipotecadora.es', pageWidth / 2, pageHeight - 6, { align: 'center' });
 
     const fileName = bank ? `Hipoteca_${bank.replace(/\s+/g, '_')}.pdf` : 'Hipoteca.pdf';
     doc.save(fileName);
