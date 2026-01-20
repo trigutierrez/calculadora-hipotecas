@@ -379,13 +379,13 @@ const MortgageForm = ({ onRemove, showRemove = false, formIndex = 1 }: MortgageF
               value={[parseInt(loanTerm)]}
               onValueChange={(value) => setLoanTerm(value[0].toString())}
               min={5}
-              max={40}
+              max={30}
               step={1}
               className="w-full"
             />
             <div className="flex justify-between text-xs text-muted-foreground">
               <span>5 años</span>
-              <span>40 años</span>
+              <span>30 años</span>
             </div>
           </div>
 
